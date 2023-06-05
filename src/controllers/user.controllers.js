@@ -25,10 +25,10 @@ const getOne = catchError(async (req, res) => {
 
 const update = catchError(async (req, res) => {
 
-    const car = req.body
+    const user = req.body
     const {id} = req.params
 
-    const userUpdate = await User.update(car, { where: {id}, returning:true})
+    const userUpdate = await User.update(user, { where: {id}, returning:true})
     return res.json(userUpdate[1][0])
 })
 

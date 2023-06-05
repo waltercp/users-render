@@ -14,7 +14,7 @@ const create = catchError(async (req, res) => {
 const remove = catchError(async (req, res) => {
     const {id} = req.params
     await User.destroy({where: {id}})
-    return res.sandStatus(204)
+    return res.sendStatus(204)
 })
 
 const getOne = catchError(async (req, res) => {
@@ -29,7 +29,7 @@ const update = catchError(async (req, res) => {
     const {id} = req.params
 
     const userUpdate = await User.update(car, { where: {id}, returning:true})
-    return res.json(carUpdate[1][0])
+    return res.json(userUpdate[1][0])
 })
 
 
